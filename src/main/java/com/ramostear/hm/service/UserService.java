@@ -11,7 +11,11 @@ public interface UserService {
 
     User save(User user);
 
+    User save2(User user);
+
     User findById(Long id);
+
+    User findById2(Long id);
 
     List<User> findAll();
 }

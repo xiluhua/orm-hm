@@ -1,5 +1,6 @@
 package com.ramostear.hm.orm.mybatis;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ramostear.hm.model.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
@@ -11,7 +12,7 @@ import java.util.List;
  */
 @Component
 @Mapper
-public interface UserMapper {
+public interface UserMapper extends BaseMapper<User>{
 
     User selectByUserId(Long id);
 

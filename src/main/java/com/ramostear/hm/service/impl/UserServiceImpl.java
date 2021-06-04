@@ -34,9 +34,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
+    public User save2(User user) {
+        int result = userMapper.insert(user);
+        System.out.println("result:"+result);
+        return user;
+    }
+
+    @Override
     public User findById(Long id) {
         return userMapper.selectByUserId(id);
+    }
+
+    @Override
+    public User findById2(Long id) {
+        return userRepository.findById(id).get();
     }
 
     @Override

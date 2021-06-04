@@ -1,5 +1,6 @@
 package com.ramostear.hm.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.ramostear.hm.model.User;
 import com.ramostear.hm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +22,28 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping
+    @PostMapping("s1")
     public User save(@RequestBody User user){
         return userService.save(user);
     }
 
-    @GetMapping("/{id}")
+    @PostMapping("s2")
+    public User save2(@RequestBody User user){
+        return userService.save2(user);
+    }
+
+    @GetMapping("my/{id}")
     public User findOne(@PathVariable Long id){
-        return userService.findById(id);
+        User user = userService.findById(id);
+        System.out.println("user: "+ JSON.toJSONString(user));
+        return user;
+    }
+
+    @GetMapping("hi/{id}")
+    public User findOne2(@PathVariable Long id){
+        User user = userService.findById2(id);
+        System.out.println("user: "+ JSON.toJSONString(user));
+        return user;
     }
 
     @GetMapping

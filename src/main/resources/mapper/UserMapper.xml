@@ -2,19 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ramostear.hm.orm.mybatis.UserMapper">
     <resultMap id="UserResultMap" type="com.ramostear.hm.model.User">
-        <result column="USER_ID" javaType="Long" property="id"/>
-        <result column="USERNAME" javaType="String" property="username"/>
-        <result column="ALIAS" javaType="String" property="alias"/>
-        <result column="AGE" javaType="int" property="age"/>
+        <result column="user_id" javaType="Long" property="id"/>
+        <result column="username" javaType="String" property="username"/>
+        <result column="alias" javaType="String" property="alias"/>
+        <result column="age" javaType="int" property="age"/>
     </resultMap>
 
 
     <select id="selectByUserId" resultMap="UserResultMap">
-        select u.* from HM_USER as u where u.USER_ID = #{id}
+        select u.* from hm_user as u where u.user_id = #{id}
     </select>
 
     <select id="selectAllUser" resultMap="UserResultMap">
-        select u.* from HM_USER as u
+        select u.* from hm_user as u
     </select>
 
 </mapper>
